@@ -1,7 +1,7 @@
-import Text.Parsec
-import Text.Parsec.String
-import Text.Parsec.Number
-import Data.Set
+import           Text.Parsec
+import           Text.Parsec.String
+import           Text.Parsec.Number
+import           Data.Set
 
 parser :: Parser [Int]
 parser = many (int <* spaces) <* eof
