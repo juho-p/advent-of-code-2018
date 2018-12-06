@@ -1,13 +1,14 @@
 import           Data.Char
+import           Data.Function
 
 processedLength :: String -> Int
 processedLength input = (length . snd . head)
-    $ dropWhile (uncurry (/=)) (iterations `zip` tail iterations)
+    $ dropWhile (uncurry ((/=) `on` length)) (iterations `zip` tail iterations)
   where
     iterations = tail $ iterate process input
     process :: String -> String
     process = process' [] Nothing
-    process' accum Nothing [] = reverse accum
+    process' accum Nothing [] = accum
     process' accum (Just prev) [] = process' (prev : accum) Nothing []
     process' accum Nothing (curr : units) = process' accum (Just curr) units
     process' accum (Just prev) (curr : units)
