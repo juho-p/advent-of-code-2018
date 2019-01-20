@@ -2,9 +2,10 @@
 
 ## Implementations
 
-Each implementation use the same algorithm, but different data structures
+Each implementation use similar algorithm, but different data structure
 
 * https://hackage.haskell.org/package/containers-0.6.0.1/docs/Data-Sequence.html
+* https://hackage.haskell.org/package/pointedlist-0.6.1/docs/Data-List-PointedList.html
 * https://hackage.haskell.org/package/mutable-containers-0.3.3/docs/Data-Mutable.html
 * https://doc.rust-lang.org/std/collections/struct.VecDeque.html
 
@@ -12,12 +13,10 @@ Source code can be found in this directory.
 
 ## Results
 
-Benchmarking was done on laptop with Intel i5-5200U CPU. Average time for ten
+Benchmarking was done on laptop with Intel i7-4770 CPU. Average time for ten
 runs (both part 1 and part 2) for each implementation:
 
-* Haskell (immutable Seq): 2.29s
-* Haskell (mutable Deque): 1.11s
-* Rust (mutable Deque): 0.100s
-
-Conclusion: Rust is fast, but Haskell Data.Sequence is not that bad compared to
-mutable deque.
+* Haskell (immutable Seq): 1.54s
+* Haskell (pointed list): 1.35s
+* Haskell (mutable Deque): 0.726s
+* Rust (mutable Deque): 0.0670s
